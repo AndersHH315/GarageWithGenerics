@@ -1,0 +1,14 @@
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\bin\Debug\net10.0\GarageGenerics.exe
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\bin\Debug\net10.0\GarageGenerics.deps.json
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\bin\Debug\net10.0\GarageGenerics.runtimeconfig.json
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\bin\Debug\net10.0\GarageGenerics.dll
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\bin\Debug\net10.0\GarageGenerics.pdb
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.AssemblyInfoInputs.cache
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.AssemblyInfo.cs
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.csproj.CoreCompileInputs.cache
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.dll
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\refint\GarageGenerics.dll
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.pdb
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\GarageGenerics.genruntimeconfig.cache
+C:\Users\Ander\Github\C#-Projects\GarageGenerics\GarageGenerics\obj\Debug\net10.0\ref\GarageGenerics.dll
