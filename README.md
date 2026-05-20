@@ -1,7 +1,7 @@
 # GarageWithGenerics
 ## Om projektet
 En consoleapplikation som hanterar ett garage.
-Applikationen använder sig mest av listor men arrayer förekomer.
+Applikationen använder sig mest av listor men arrayer förekommer.
 
 ### Funktionalitet
 1. Man kan lägga till olika fordon.
