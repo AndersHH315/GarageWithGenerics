@@ -1,17 +1,17 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Common;
 using System.Linq;
 using GarageGenerics.Handler;
 using GarageGenerics.VehicleType;
 
 namespace GarageGenerics
 {
-    public class Garage<T> where T : Vehicle
+    public class Garage<T>: IEnumerable<T> where T : Vehicle
     {
         private Vehicle[] _vehicles;
         private int _parkingSpots;
+        GarageHandler garageHandler = new();
         public int ParkingSpots
         {
             get { return _parkingSpots; }
@@ -25,7 +25,19 @@ namespace GarageGenerics
             ParkingSpots = parkingSpots;
             _vehicles = new Vehicle[ParkingSpots];
         }
-        GarageHandler garageHandler = new();
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (T item in _vehicles)
+            {
+                yield return item;
+            }
+        }
 
         public void ParkVehicles()
         {

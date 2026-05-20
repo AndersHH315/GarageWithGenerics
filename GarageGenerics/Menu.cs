@@ -26,9 +26,6 @@ namespace GarageGenerics
         public void SearchMenu()
         {
             Console.WriteLine("Select your search method\n1. By registernumber\n2. By colour\n3. include more then 1 property");
-            // Console.WriteLine("1. By registernumber");
-            // Console.WriteLine("2. By colour");
-            // Console.WriteLine("3. include more then 1 property");
         }
 
         public void ColourMenu()
@@ -36,12 +33,14 @@ namespace GarageGenerics
             Console.WriteLine("What colour is your vehicle?");
         }
 
+        public void WheelsMenu()
+        {
+            Console.WriteLine("How many wheels does your vehicle have?\n1. 2\n2. 3\n3. 4\n4. 6");
+        }
+
         public void FuelMenu()
         {
             Console.WriteLine("What type of fuel does your vehicle consume?\n1. Gasoline\n2. Diesel\n3. Electricity");
-            // Console.WriteLine("1. Gasoline");
-            // Console.WriteLine("2. Diesel");
-            // Console.WriteLine("3. Electricity");
         }
     }
 }

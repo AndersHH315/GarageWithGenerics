@@ -18,7 +18,7 @@ namespace GarageGenerics.VehicleType
 
         public override string ToString()
         {
-            return $"{Colour} Airplane, Registernumber: {RegisterNumber}, Amount of engines: {NumberOfEngines}.";
+            return $"{Colour} Airplane, Registernumber: {RegisterNumber}, {Wheels}: Wheels, Amount of engines: {NumberOfEngines}.";
         }
     }
 }

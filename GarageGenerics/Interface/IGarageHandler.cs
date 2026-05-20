@@ -24,6 +24,7 @@ namespace GarageGenerics.Interface
         bool CheckRegisterNumber(string regnumber);
         List<Vehicle> RedirectVehicleSearch(int choice, Vehicle[] vehicles);
         string ColourType();
+        int AmountOfWheels();
 
 
     }

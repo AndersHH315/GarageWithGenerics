@@ -1,11 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.IO.Compression;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Xml;
-using GarageGenerics;
 using GarageGenerics.Interface;
 using GarageGenerics.VehicleType;
 using GarageGenerics.VehicleType.VehicleParts;
@@ -85,6 +80,7 @@ namespace GarageGenerics.Handler
         {
             string regNmbr = RegisterNumber();
             string colour = ColourType();
+            int wheels = AmountOfWheels();
             menu.FuelMenu();
             string? input = Console.ReadLine();
             while (!int.TryParse(input, out int result) && result < 1 || result > 3)
@@ -93,13 +89,14 @@ namespace GarageGenerics.Handler
                 input = Console.ReadLine();
             }
             int fuel = int.Parse(input);
-            Car car = new(regNmbr, colour, 4,  WhatFuel(fuel));
+            Car car = new(regNmbr, colour, wheels,  WhatFuel(fuel));
             return car;
         }
         public Bus AddNewBus()
         {
             string regNmbr = RegisterNumber();
             string colour = ColourType();
+            int wheels = AmountOfWheels();
             Console.WriteLine("How many seats does the bus ahve");
             string? input = Console.ReadLine();
             while (!int.TryParse(input, out int result))
@@ -108,7 +105,7 @@ namespace GarageGenerics.Handler
                 input = Console.ReadLine();
             }
             int seats = int.Parse(input);
-            Bus bus = new(regNmbr, colour, 4, seats);
+            Bus bus = new(regNmbr, colour, wheels, seats);
             return bus;
         }
         public Boat AddNewBoat()
@@ -130,6 +127,7 @@ namespace GarageGenerics.Handler
         {
             string regNmbr = RegisterNumber();
             string colour = ColourType();
+            int wheels = AmountOfWheels();
             Console.WriteLine("How many cylinders?");
             string? input = Console.ReadLine();
             while (!int.TryParse(input, out int result))
@@ -138,13 +136,14 @@ namespace GarageGenerics.Handler
                 input = Console.ReadLine();
             }
             int cylinder = int.Parse(input);
-            Motorcycle motorcycle = new(regNmbr, colour, 2, cylinder);
+            Motorcycle motorcycle = new(regNmbr, colour, wheels, cylinder);
             return motorcycle;
         }
         public Airplane AddNewAirPlane()
         {
             string regNmbr = RegisterNumber();
             string colour = ColourType();
+            int wheels = AmountOfWheels();
             Console.WriteLine("Enter the number of engines for your ariplane.");
             string? input = Console.ReadLine();
             while (!int.TryParse(input, out int result))
@@ -153,7 +152,7 @@ namespace GarageGenerics.Handler
                 input = Console.ReadLine();
             }
             int engines = int.Parse(input);
-            Airplane airplane = new(regNmbr, colour, 6, engines);
+            Airplane airplane = new(regNmbr, colour, wheels, engines);
             return airplane;
         }
         public void RemoveVehicle(Vehicle[] vehicles)
@@ -373,6 +372,18 @@ namespace GarageGenerics.Handler
             }
             return input;
         }
+        public int AmountOfWheels()
+        {
+            menu.VehicleMenu();
+            string? input = Console.ReadLine();
+            while (!int.TryParse(input, out int result))
+            {
+                Console.WriteLine("Wrong input! Type a number between 1-4");
+                input = Console.ReadLine();
+            }
+            int output = int.Parse(input);
+            return output;
+        }
         private List<Vehicle> ClearNullsInVehicleList(Vehicle[] vehicles)
         {
             List<Vehicle> removeNulls = vehicles.Where(x => x != null).ToList();
@@ -385,6 +396,15 @@ namespace GarageGenerics.Handler
             3 => AddNewBoat(),
             4 => AddNewBus(),
             5 => AddNewAirPlane(),
+            _ => throw new Exception("Invalid input!")
+        };
+
+        private int NumberOfWheels(int choice) => choice switch
+        {
+            2 => 2,
+            3 => 3,
+            4 => 4,
+            6 => 6,
             _ => throw new Exception("Invalid input!")
         };
         private FuelType WhatFuel(int fueltype) => fueltype switch

@@ -19,7 +19,7 @@ namespace GarageGenerics
                 spots = Console.ReadLine();
             }
             Garage<Vehicle> garage = new(int.Parse(spots));
-            garage.ParkVehicles();
+            garage.ParkVehicles();;
             do
             {
                 showMenu.MainMenu();

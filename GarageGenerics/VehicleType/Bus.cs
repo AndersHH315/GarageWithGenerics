@@ -18,7 +18,7 @@ namespace GarageGenerics.VehicleType
 
         public override string ToString()
         {
-            return $"{Colour} Bus, Registernumber: {RegisterNumber}, Number of seats: {NumberOfSeats}.";
+            return $"{Colour} Bus, Registernumber: {RegisterNumber}, {Wheels}: Wheels, Number of seats: {NumberOfSeats}.";
         }
     }
 }

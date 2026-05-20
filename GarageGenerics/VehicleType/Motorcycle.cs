@@ -20,7 +20,7 @@ namespace GarageGenerics.VehicleType
 
         public override string ToString()
         {
-            return $"{Colour} Motorcycle, Registernumber: {RegisterNumber}, Amount of cylinders: {CylinderVolume}.";
+            return $"{Colour} Motorcycle, Registernumber: {RegisterNumber}, {Wheels}: Wheels, Amount of cylinders: {CylinderVolume}.";
         }
     }
 }
