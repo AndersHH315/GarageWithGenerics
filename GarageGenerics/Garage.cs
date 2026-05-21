@@ -80,9 +80,9 @@ namespace GarageGenerics
             garageHandler.ShowVehicles(_vehicles.ToList());
         }
 
-        public void ShowTypeOfParkedVehicles()
+        public void ShowTypeOfParkedVehicles(Garage<Vehicle> vehicles)
         {
-            foreach (var item in  garageHandler.ShowVehicleTypes(_vehicles.ToList()))
+            foreach (var item in  garageHandler.ShowVehicleTypes(vehicles))
             {
                 Console.WriteLine($"Parked {item.Key}'s: {item.Value}");
             }

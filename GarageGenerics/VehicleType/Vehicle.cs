@@ -9,7 +9,7 @@ namespace GarageGenerics.VehicleType
         private string? _colour;
         private int _wheels;
 
-        public string RegisterNumber
+        public string? RegisterNumber
         {
             get { return _regNumber.ToUpper(); }
             set
@@ -18,7 +18,7 @@ namespace GarageGenerics.VehicleType
             }
 
         }
-        public string Colour
+        public string? Colour
         {
             get { return _colour.First().ToString().ToUpper() + _colour.Substring(1) ; }
             set

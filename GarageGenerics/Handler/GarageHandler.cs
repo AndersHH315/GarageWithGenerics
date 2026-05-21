@@ -11,7 +11,56 @@ namespace GarageGenerics.Handler
     {
         private List<Vehicle> Vehicles = new List<Vehicle>();
         Menu menu = new();
-        private int _parkingSpots = 0;
+        private static int _parkingSpots = 0;
+        private Garage<Vehicle> garage;
+
+        public Garage<Vehicle> CreateGarage()
+        {
+            Console.WriteLine("Create a garage by enter the amount of spots in numbers!");
+            string? spots = Console.ReadLine();
+            while (!int.TryParse(spots, out int check))
+            {
+                Console.WriteLine("Type a number between 1-100!");
+                spots = Console.ReadLine();
+            }
+            garage = new(int.Parse(spots));
+            return garage;
+        }
+        public void RunGarage()
+        {
+            CreateGarage();
+            garage.ParkVehicles();
+            string? input = "";
+            do
+            {
+                menu.MainMenu();
+                input = Console.ReadLine();
+                switch (input)
+                {
+                    case "0":
+                    Console.WriteLine("Closing down the garage!");
+                    break;
+                    case "1":
+                    garage.ParkNewVehicle();
+                    break;
+                    case "2":
+                    garage.ShowParkedVehicles();
+                    break;
+                    case "3":
+                    garage.ShowTypeOfParkedVehicles(garage);
+                    break;
+                    case "4":
+                    garage.SearchParkedVehicles();
+                    break;
+                    case "5":
+                    garage.UnParkVehicle();
+                    break;
+                    default:
+                    Console.WriteLine("Invalid entry! Try again!");
+                    break;
+                }                    
+            } while (input != "0");
+        }
         public List<Vehicle> AddSomeVehicle()
         {
             Vehicles.Add(new Car("ABC123", "Red", 4, FuelType.Diesel));
@@ -177,7 +226,7 @@ namespace GarageGenerics.Handler
                 Console.WriteLine($"Spot {i + 1}: {(vehicles[i] != null ? vehicles[i].ToString() : "Empty")}");
             }
         }
-        public Dictionary<string, int> ShowVehicleTypes(List<Vehicle>vehicles)
+        public Dictionary<string, int> ShowVehicleTypes(Garage<Vehicle> vehicles)
         {
             List<Vehicle> showAllVehicleTypes = ClearNullsInVehicleList(vehicles.ToArray());
             return showAllVehicleTypes.GroupBy(x => x.GetType().Name).ToDictionary(x => x.Key, x => x.Count());
@@ -374,15 +423,15 @@ namespace GarageGenerics.Handler
         }
         public int AmountOfWheels()
         {
-            menu.VehicleMenu();
+            menu.WheelsMenu();
             string? input = Console.ReadLine();
-            while (!int.TryParse(input, out int result))
+            while (!int.TryParse(input, out int result) && result != 2 || result != 3 || result != 4 || result != 6)
             {
-                Console.WriteLine("Wrong input! Type a number between 1-4");
+                Console.WriteLine("Wrong input! Type a number thats one of the followings: 2, 3, 4, 6");
                 input = Console.ReadLine();
             }
             int output = int.Parse(input);
-            return output;
+            return NumberOfWheels(output);
         }
         private List<Vehicle> ClearNullsInVehicleList(Vehicle[] vehicles)
         {

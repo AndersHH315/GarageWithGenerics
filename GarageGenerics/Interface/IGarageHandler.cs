@@ -14,7 +14,7 @@ namespace GarageGenerics.Interface
         Airplane AddNewAirPlane();
         void RemoveVehicle(Vehicle[] vehicles);
         void ShowVehicleSpots(List<Vehicle> vehicles);
-        Dictionary<string, int> ShowVehicleTypes(List<Vehicle>vehicles);
+        Dictionary<string, int> ShowVehicleTypes(Garage<Vehicle>vehicles);
         void ShowVehicles(List<Vehicle> vehicles);
         List<Vehicle> RegisterNumberVehicleSearch(string search, Vehicle[] vehicles);
         List<Vehicle> ColourVehicleSearch(string search, Vehicle[] vehicles);
