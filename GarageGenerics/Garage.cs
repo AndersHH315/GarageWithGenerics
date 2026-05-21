@@ -25,20 +25,18 @@ namespace GarageGenerics
             ParkingSpots = parkingSpots;
             _vehicles = new Vehicle[ParkingSpots];
         }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return GetEnumerator();
-        }
-
         public IEnumerator<T> GetEnumerator()
         {
             foreach (T item in _vehicles)
             {
-                yield return item;
+                if(item is not null)
+                    yield return item;
             }
         }
-
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
         public void ParkVehicles()
         {
             if(_vehicles.Length > 8)
@@ -52,9 +50,9 @@ namespace GarageGenerics
                 }
                 if(addVehicles == "y")
                 {
-                    var newVehicles = garageHandler.AddSomeVehicle();
+                    var newVehicles = garageHandler.AddSomeVehicle(_vehicles);
 
-                    for (int i = 0; i < newVehicles.Count; i++)
+                    for (int i = 0; i < newVehicles.Length; i++)
                     {
                         _vehicles[i] = newVehicles[i];
                     }
@@ -64,7 +62,6 @@ namespace GarageGenerics
                     Console.WriteLine("Okay, no vehicles will be added to the garage!");
             }
         }
-
         public void ParkNewVehicle()
         {
             garageHandler.AddNewVehicle(_vehicles);
@@ -75,22 +72,5 @@ namespace GarageGenerics
             garageHandler.RemoveVehicle(_vehicles);
         }
 
-        public void ShowParkedVehicles()
-        {
-            garageHandler.ShowVehicles(_vehicles.ToList());
-        }
-
-        public void ShowTypeOfParkedVehicles(Garage<Vehicle> vehicles)
-        {
-            foreach (var item in  garageHandler.ShowVehicleTypes(vehicles))
-            {
-                Console.WriteLine($"Parked {item.Key}'s: {item.Value}");
-            }
-        }
-
-        public void SearchParkedVehicles()
-        {
-            garageHandler.SearchVehicles(_vehicles);
-        }
     }
 }

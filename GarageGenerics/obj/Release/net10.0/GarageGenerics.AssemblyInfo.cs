@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GarageGenerics")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fe6971247c8f441f371e79080e48a92e7e16fb90")]
 [assembly: System.Reflection.AssemblyProductAttribute("GarageGenerics")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GarageGenerics")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -5,7 +5,8 @@ namespace GarageGenerics.Interface
 {
     public interface IGarageHandler
     {
-        List<Vehicle> AddSomeVehicle();
+        void RunGarage();
+        Vehicle[] AddSomeVehicle(Vehicle[] vehicles);
         string AddNewVehicle(Vehicle[] vehicles);
         Car AddNewCar();
         Bus AddNewBus();
@@ -14,15 +15,15 @@ namespace GarageGenerics.Interface
         Airplane AddNewAirPlane();
         void RemoveVehicle(Vehicle[] vehicles);
         void ShowVehicleSpots(List<Vehicle> vehicles);
-        Dictionary<string, int> ShowVehicleTypes(Garage<Vehicle>vehicles);
-        void ShowVehicles(List<Vehicle> vehicles);
-        List<Vehicle> RegisterNumberVehicleSearch(string search, Vehicle[] vehicles);
-        List<Vehicle> ColourVehicleSearch(string search, Vehicle[] vehicles);
-        List<Vehicle> AdvancedVehicleSearch(string search, Vehicle[] vehicles);
-        void SearchVehicles(Vehicle[] vehicles);
+        void ShowVehicleTypes(Garage<Vehicle>vehicles);
+        void ShowVehicles(Garage<Vehicle> vehicles);
+        List<Vehicle> RegisterNumberVehicleSearch(string search, Garage<Vehicle>vehicles);
+        List<Vehicle> ColourVehicleSearch(string search, Garage<Vehicle>vehicles);
+        List<Vehicle> AdvancedVehicleSearch(string search, Garage<Vehicle>vehicles);
+        void SearchVehicles(Garage<Vehicle>vehicles);
         string RegisterNumber();
         bool CheckRegisterNumber(string regnumber);
-        List<Vehicle> RedirectVehicleSearch(int choice, Vehicle[] vehicles);
+        List<Vehicle> RedirectVehicleSearch(int choice, Garage<Vehicle>vehicles);
         string ColourType();
         int AmountOfWheels();
 
